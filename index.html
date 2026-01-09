@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ПРОФ: Итоги 2025</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent-color: #c6ff00;
+            --secondary-glow: #00ff96;
+            --bg-dark: #071616;
+            --vh: 1vh;
+            --container-width: 450px; 
+        }
+
+        body, html { 
+            margin: 0; padding: 0; 
+            height: 100vh;
+            height: calc(var(--vh, 1vh) * 100);
+            background: #000; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            color: white; 
+            overflow: hidden; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-container {
+            width: 100%; height: 100%;
+            max-width: var(--container-width); 
+            background: var(--bg-dark);
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .swiper { width: 100%; height: 100%; z-index: 5; }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 25px;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+            background-color: #0a1f1f;
+            background-image: radial-gradient(circle at center, #102e2e 0%, #071616 100%);
+        }
+
+        .glow-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .glow-shape-png {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+            transform: scale(0.8);
+            z-index: 2;
+        }
+
+        .swiper-slide-active .glow-shape-png {
+            opacity: 0.8;
+            transform: scale(1);
+        }
+
+        .border-frame {
+            position: absolute;
+            top: 25px; left: 20px; right: 20px; bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 35px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .swiper-pagination-vertical.swiper-pagination-bullets {
+            left: 15px !important;
+            right: auto !important;
+            z-index: 20;
+        }
+
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 1;
+            width: 6px;
+            height: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--accent-color) !important;
+            height: 20px !important;
+            border-radius: 10px !important;
+        }
+
+        .content-wrap {
+            position: relative;
+            z-index: 15;
+            width: 100%;
+        }
+
+        h1 { font-size: 2.8rem; margin: 0; line-height: 1.1; font-weight: 900; text-transform: uppercase; }
+        h2 { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 0.95rem; opacity: 0.85; margin-top: 12px; line-height: 1.5; font-weight: 400; }
+        
+        .highlight-box {
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            padding: 15px;
+            border-radius: 20px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .highlight-title { font-weight: 800; font-size: 0.85rem; color: var(--accent-color); display: block; margin-bottom: 5px; }
+
+        .number { 
+            font-weight: 800; 
+            font-size: 3.5rem; 
+            color: var(--accent-color); 
+            text-shadow: 0 0 20px rgba(198, 255, 0, 0.4); 
+        }
+
+        .action-btn {
+            margin-top: 25px;
+            padding: 18px 35px;
+            background: var(--accent-color);
+            color: black;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            
+            <!-- СЛАЙД 1 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.6), rgba(7,22,22,0.8)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow1.png" onerror="this.style.display='none'" class="glow-shape-png" style="top: -5%; right: -15%; width: 350px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <h1 data-aos="fade-up">2025</h1>
+                    <h2 style="color: white; margin-top: 10px;">те самые итоги года</h2>
+                    <button class="action-btn" id="start-btn">Начать просмотр</button>
+                </div>
+            </div>
+
+            <!-- СЛАЙД 2 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.5), rgba(7,22,22,0.5)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow2.png" onerror="this.style.display='none'" class="glow-shape-png" style="bottom: -10%; left: -15%; width: 400px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <div class="number" data-target="5265">0</div>
+                    <p>человек вступило в ПРОФ в этом году.</p>
+                </div>
+            </div>
+
+            <!-- СЛАЙД 3 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.5), rgba(7,22,22,0.5)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow1.png" onerror="this.style.display='none'" class="glow-shape-png" style="top: 10%; left: -20%; width: 450px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <h2>Финансовая деятельность</h2>
+                    <p>Направлена на помощь студентам и создание комфортной среды.</p>
+                </div>
+            </div>
+
+            <!-- СЛАЙД 4 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.5), rgba(7,22,22,0.5)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow2.png" onerror="this.style.display='none'" class="glow-shape-png" style="bottom: 5%; right: -15%; width: 350px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <h2 style="font-size: 0.9rem;">Материальная помощь</h2>
+                    <div class="highlight-box">
+                        <span class="highlight-title">Фонд ПРОФа</span>
+                        Рассмотрено 69 обращений, выплачено более 1,4 млн рублей.
+                    </div>
+                    <div class="highlight-box">
+                        <span class="highlight-title">Фонд социальной защиты (СПбПУ)</span>
+                        Выплачено более 42,6 млн рублей.
+                    </div>
+                </div>
+            </div>
+
+            <!-- СЛАЙД 5 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.5), rgba(7,22,22,0.5)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow1.png" onerror="this.style.display='none'" class="glow-shape-png" style="top: 0; left: -10%; width: 350px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <h2>Бюджеты</h2>
+                    <div class="highlight-box"><b>1 062 023 руб.</b> Институты</div>
+                    <div class="highlight-box"><b>2 891 701 руб.</b> ПРОФ.сервисы</div>
+                </div>
+            </div>
+
+            <!-- СЛАЙД 6 -->
+            <div class="swiper-slide" style="background-image: linear-gradient(rgba(7,22,22,0.7), rgba(7,22,22,0.9)), url('bg_final.png');">
+                <div class="glow-layer">
+                    <img src="glow2.png" onerror="this.style.display='none'" class="glow-shape-png" style="bottom: -5%; left: -10%; width: 450px;">
+                </div>
+                <div class="border-frame"></div>
+                <div class="content-wrap">
+                    <h2>Привлечено 10 млн рублей</h2>
+                    <p>Благодаря грантам Росмолодёжь.</p>
+                    <button class="action-btn" id="restart-btn">Заново</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    // 1. Фикс высоты для мобильных
+    const updateHeight = () => {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+    window.addEventListener('resize', updateHeight);
+    updateHeight();
+
+    // 2. Инициализация Swiper с защитой от ложных срабатываний
+    const swiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        speed: 800,
+        // Игнорировать короткие свайпы (порог 20px)
+        threshold: 20,
+        // Защита от слишком чувствительного колесика/тачпада
+        mousewheel: {
+            invert: false,
+            sensitivity: 1,
+            thresholdDelta: 50, // Минимум 50 единиц прокрутки для переключения
+            releaseOnEdges: true
+        },
+        // Стабильность на мобильных
+        touchMoveStopPropagation: true,
+        resistance: true,
+        resistanceRatio: 0.5,
+        // Исключаем пролистывание по инерции нескольких слайдов сразу
+        longSwipes: false,
+        pagination: { 
+            el: '.swiper-pagination', 
+            clickable: true 
+        }
+    });
+
+    // 3. Анимация чисел
+    function animateCount(slide) {
+        if (!slide) return;
+        slide.querySelectorAll('.number[data-target]').forEach(num => {
+            if (num.dataset.animated === "true") return;
+            const target = parseInt(num.dataset.target);
+            let current = 0;
+            const step = target / 60;
+            const update = () => {
+                current += step;
+                if (current < target) {
+                    num.innerText = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(update);
+                } else {
+                    num.innerText = target.toLocaleString();
+                    num.dataset.animated = "true";
+                }
+            };
+            update();
+        });
+    }
+
+    swiper.on('slideChangeTransitionEnd', () => animateCount(swiper.slides[swiper.activeIndex]));
+
+    // 4. Кнопки
+    document.getElementById('start-btn')?.addEventListener('click', () => swiper.slideNext());
+    document.getElementById('restart-btn')?.addEventListener('click', () => {
+        document.querySelectorAll('.number').forEach(n => delete n.dataset.animated);
+        swiper.slideTo(0, 1000);
+    });
+
+    // 5. Запуск на старте
+    window.addEventListener('load', () => {
+        setTimeout(() => animateCount(swiper.slides[0]), 300);
+    });
+
+    AOS.init();
+</script>
+
+</body>
+</html>
